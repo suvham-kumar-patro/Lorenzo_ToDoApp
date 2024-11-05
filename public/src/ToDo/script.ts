@@ -6,6 +6,15 @@ interface Task {
 
 let tasks: Task[] = []; // Array to store tasks
 
+// Function to load tasks from localStorage
+function loadTasks(): void {
+    const storedTasks = localStorage.getItem('tasks');
+    if (storedTasks) {
+        tasks = JSON.parse(storedTasks); // Parse the stored JSON and assign it to tasks array
+    }
+    displayTasks('all'); // Display tasks once loaded
+}
+
 // Function to add a task
 function addTask(): void {
     const inputField = document.getElementById('task-input') as HTMLInputElement;
@@ -22,9 +31,13 @@ function addTask(): void {
         completed: false
     };
 
-    tasks.push(task);
+    tasks.push(task);  // Store the task in tasks array
     inputField.value = ''; // Clear the input field
-    displayTasks('all');  // Display all tasks
+
+    // Save tasks to localStorage
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+
+    displayTasks('all');  // Refresh and display all tasks
 }
 
 // Function to display tasks based on the filter
@@ -41,7 +54,6 @@ function displayTasks(filter: 'all' | 'completed' | 'incomplete'): void {
     filteredTasks.forEach(task => {
         const taskItem = document.createElement('li');
         taskItem.classList.toggle('completed', task.completed);
-        taskItem.classList.add(task.completed ? 'completed' : '');
         taskItem.setAttribute('data-id', task.id.toString());
 
         taskItem.innerHTML = `
@@ -59,6 +71,7 @@ function toggleComplete(taskId: number): void {
     const task = tasks.find(task => task.id === taskId);
     if (task) {
         task.completed = !task.completed; // Toggle the completed status
+        localStorage.setItem('tasks', JSON.stringify(tasks));  // Update tasks in localStorage
         displayTasks('all'); // Refresh the list
     }
 }
@@ -66,12 +79,14 @@ function toggleComplete(taskId: number): void {
 // Function to delete a task
 function deleteTask(taskId: number): void {
     tasks = tasks.filter(task => task.id !== taskId); // Remove the task by ID
+    localStorage.setItem('tasks', JSON.stringify(tasks));  // Update tasks in localStorage
     displayTasks('all'); // Refresh the list
 }
 
 // Function to delete all tasks
 function clearAllTasks(): void {
     tasks = []; // Clear all tasks from the list
+    localStorage.setItem('tasks', JSON.stringify(tasks));  // Clear tasks in localStorage
     displayTasks('all'); // Refresh the list
 }
 
@@ -100,6 +115,7 @@ function editTask(taskId: number): void {
             taskItem.classList.remove('editing');
             span.style.display = 'inline-block'; // Show the span
             span.textContent = input.value;
+            localStorage.setItem('tasks', JSON.stringify(tasks));  // Update tasks in localStorage
             displayTasks('all'); // Refresh the list
         }
     });
@@ -110,6 +126,7 @@ function editTask(taskId: number): void {
         taskItem.classList.remove('editing');
         span.style.display = 'inline-block'; // Show the span
         span.textContent = input.value;
+        localStorage.setItem('tasks', JSON.stringify(tasks));  // Update tasks in localStorage
         displayTasks('all'); // Refresh the list
     });
 }
@@ -126,5 +143,8 @@ function listenForEnterKey(): void {
     });
 }
 
-// Call listenForEnterKey to enable the Enter key functionality
-listenForEnterKey();
+// Call the functions to initialize the app
+listenForEnterKey();  // Enable Enter key functionality
+loadTasks();  // Load tasks from localStorage
+
+
