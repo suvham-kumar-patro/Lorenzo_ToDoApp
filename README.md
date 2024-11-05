@@ -38,10 +38,10 @@ To set up this project locally:
    In your terminal or command prompt, navigate to the directory where you want to clone the repository, then run:
    git clone https://github.com/suvham-kumar-patro/Lorenzo_ToDoApp.git
 
-2. **Navigate into the project folder**
+2. **Navigate into the project folder:**
     cd Lorenzo_ToDoApp
 
-3. **Install required packages**
+3. **Install required packages:**
     npm install
 
 4. **Start the app**
