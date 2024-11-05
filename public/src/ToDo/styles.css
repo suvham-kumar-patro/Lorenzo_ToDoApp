@@ -121,7 +121,7 @@ h1 {
 ul {
     list-style-type: none;
     padding-left: 0;
-    overflow-y: auto;  /* Make the task list scrollable */
+    overflow-x: hidden;  /* Make the task list scrollable */
     max-height: 50vh;  /* Limit the height of the list */
 }
 
