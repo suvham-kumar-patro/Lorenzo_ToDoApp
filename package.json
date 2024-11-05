@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "http-server -c-1 -o ./src/ToDo/todo ",
+    "start": "http-server -c-1 -o ./src/ToDo/index ",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1"

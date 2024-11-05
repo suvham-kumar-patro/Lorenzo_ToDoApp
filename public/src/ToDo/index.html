@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+</head>
+<body>
+
+    <div class="container">
+        <h1>My To-Do List</h1>
+
+        <!-- Input field and Add Task button -->
+        <div class="input-container">
+            <input type="text" id="task-input" placeholder="Add a new task" autofocus/>
+            <button class="add-btn" onclick="addTask()">Add Task</button>
+        </div>
+
+        <!-- Filter buttons for filtering tasks -->
+        <div class="filter-container">
+            <button class="filter-btn" onclick="filterTasks('all')">All</button>
+            <button class="filter-btn" onclick="filterTasks('completed')">Completed</button>
+            <button class="filter-btn" onclick="filterTasks('incomplete')">Incomplete</button>
+            <button class="clear-completed-btn" onclick="deleteCompleted()">Clear Completed</button>
+        </div>
+
+        <!-- Task List will be dynamically generated here -->
+        <ul id="task-list"></ul>
+    </div>
+
+    <!-- Link to the compiled JavaScript file -->
+    <script src="script.js"></script> <!-- Ensure this is the compiled JS -->
+</body>
+</html>

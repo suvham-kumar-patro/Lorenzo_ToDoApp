@@ -1,0 +1,209 @@
+/* Resetting margin and padding for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    margin-left: 20px;
+    border: 2px solid #f0f0f0;
+    height: 80vh; /* Fixed height for the container */
+    overflow: hidden; /* Hide anything that overflows */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+h1 {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#task-input {
+    width: 70%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+#task-input:focus {
+    border: 2px solid #4CAF50; /* Green on focus */
+}
+
+.add-btn {
+    padding: 12px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.filter-container {
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 10px 15px;
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+.clear-completed-btn {
+    padding: 10px 15px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.clear-completed-btn:hover {
+    background-color: #e53935;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    overflow-y: auto;  /* Make the task list scrollable */
+    max-height: 50vh;  /* Limit the height of the list */
+}
+
+li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start; /* Align items from the left */
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+li:hover {
+    background-color: #f1f1f1;
+    transform: translateX(5px);
+}
+
+li.completed {
+    background-color: #d3ffd3;
+    color: #4caf50;
+    text-decoration: line-through;
+}
+
+li input[type="radio"] {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+li button {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    opacity: 0; /* Hide the delete button by default */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+li:hover button {
+    opacity: 1; /* Show the delete button on hover */
+}
+
+li span {
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+li span:hover {
+    color: #4CAF50;
+}
+
+ul li .delete-btn {
+    font-size: 18px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+ul li .delete-btn:hover {
+    color: #e53935;
+}
+
+.editing span {
+    display: none;
+}
+
+.editing input {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
