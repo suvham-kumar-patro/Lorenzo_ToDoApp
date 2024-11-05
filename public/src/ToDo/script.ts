@@ -69,9 +69,9 @@ function deleteTask(taskId: number): void {
     displayTasks('all'); // Refresh the list
 }
 
-// Function to delete all completed tasks
-function deleteCompleted(): void {
-    tasks = tasks.filter(task => !task.completed); // Remove all completed tasks
+// Function to delete all tasks
+function clearAllTasks(): void {
+    tasks = []; // Clear all tasks from the list
     displayTasks('all'); // Refresh the list
 }
 

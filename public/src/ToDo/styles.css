@@ -41,7 +41,7 @@ body {
 
 h1 {
     font-size: 28px;
-    color: #ffffff;
+    color: #080000;
     margin-bottom: 20px;
 }
 
@@ -102,9 +102,9 @@ h1 {
     transform: scale(1.05);
 }
 
-.clear-completed-btn {
+.all-clear-btn {
     padding: 10px 15px;
-    background-color: #f44336;
+    background-color: #9e0b0f; /* Red color for 'All Clear' */
     color: white;
     border: none;
     border-radius: 5px;
@@ -114,8 +114,8 @@ h1 {
     transition: all 0.3s ease;
 }
 
-.clear-completed-btn:hover {
-    background-color: #e53935;
+.all-clear-btn:hover {
+    background-color: #8b0a0e;
 }
 
 ul {
