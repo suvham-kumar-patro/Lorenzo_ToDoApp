@@ -147,4 +147,5 @@ function listenForEnterKey(): void {
 listenForEnterKey();  // Enable Enter key functionality
 loadTasks();  // Load tasks from localStorage
 
+localStorage.removeItem('tasks');
 
